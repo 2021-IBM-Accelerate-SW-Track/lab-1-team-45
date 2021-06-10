@@ -1,35 +1,9 @@
 import React from 'react';
 import Header from "./component/header"
+import Clock from "./component/clock"
+import CheckboxList from "./component/checkboxes"
 import './App.css';
 import { Container, Box, Button } from '@material-ui/core';
-
-class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            created: new Date(),
-            updated: new Date() 
-        };
-    }
-
-    updateTime = () => {
-        console.log(this.state.created);
-        this.setState({
-            updated: new Date()
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <h2>Updated at {this.state.updated.toLocaleTimeString()}.</h2>
-                <p>Created {this.state.created.toLocaleString()}.</p>
-                <Button variant="contained" color="primary" onClick={this.updateTime}>Update</Button>
-            </div>
-        );
-    }
-}
-
 
 function App() {
     return (
@@ -38,6 +12,9 @@ function App() {
         <Container maxWidth="md">
             <Box>
                 <Clock/>
+            </Box>
+            <Box>
+                <CheckboxList/>
             </Box>
         </Container>
     </div>
