@@ -30,9 +30,6 @@ export default function TaskList() {
 
     function toggleTask (time) {  
         const updatedTasks = tasks.map((t) => {
-            console.log(t);
-            console.log(t.time== time);
-            console.log(!t.checked);
             return t.time === time ? {...t, checked: !t.checked} : t;
         }
         );
