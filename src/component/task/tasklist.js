@@ -32,9 +32,9 @@ export default function TaskList() {
     }
 
     const addTask = (e) => {
-        if (tasks.filter(t => t.task.trim() === taskcontents.trim()).length === 0) {
+        if (tasks.filter(t => t.task.trim() === taskcontents.trim()).length === 0 && taskcontents.trim() !== "") {
             let ctime = new Date();
-            setTasks([...tasks, {task: taskcontents, time: ctime, id: ctime.toISOString() + taskcontents, checked: false}]);
+            setTasks([...tasks, {task: taskcontents, time: ctime, id: ctime.toISOString(), checked: false}]);
             setTaskContents("");
             setInputVal(false);
         }
@@ -47,7 +47,7 @@ export default function TaskList() {
         setTasks([]);
     }
 
-    function toggleTask (id) {  
+    const toggleTask = (id) => {  
         const updatedTasks = tasks.map((t) => {
             return t.id === id ? {...t, checked: !t.checked} : t;
         }
@@ -101,7 +101,7 @@ export default function TaskList() {
         <Box>
             <Box display="flex" p="1em">
                 <Box width="100%" mr="1.5em">
-                    <TextField
+                    <Input
                         data-testid="new-item-input"
                         error={inputVal} 
                         helperText={inputVal ? "Task already exists" : null}
