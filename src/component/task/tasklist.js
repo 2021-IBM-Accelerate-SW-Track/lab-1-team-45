@@ -102,6 +102,7 @@ export default function TaskList() {
             <Box display="flex" p="1em">
                 <Box width="100%" mr="1.5em">
                     <TextField
+                        data-testid="new-item-input"
                         error={inputVal} 
                         helperText={inputVal ? "Task already exists" : null}
                         fullWidth multiline placeholder="Task" 
@@ -110,7 +111,7 @@ export default function TaskList() {
                     />
                 </Box>
                 <Box flexShrink={1}>
-                    <Button variant="contained" color="primary" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
+                    <Button data-testid="new-item-button" variant="contained" color="primary" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
                         Add
                     </Button>
                 </Box>
