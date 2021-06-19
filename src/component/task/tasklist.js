@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';
+import './tasklist.css'
 
 
 export default function TaskList() {
@@ -61,7 +62,12 @@ export default function TaskList() {
     }
 
     function editTask (id) {
-        console.log(id);
+        const updatedTasks = tasks.filter(t => t.id !== id);
+        const editedTask = tasks.filter(t => t.id === id);
+        setTasks(updatedTasks);
+        const itemToEdit = tasks.find(t => t.id ===id);
+        setTaskContents(editedTask[0].task);
+        setInputVal(false);
     }
 
     function Task (id, task, time, checked) {
@@ -111,7 +117,7 @@ export default function TaskList() {
                     />
                 </Box>
                 <Box flexShrink={1}>
-                    <Button data-testid="new-item-button" variant="contained" color="primary" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
+                    <Button className = 'add-button' ata-testid="new-item-button" variant="contained" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
                         Add
                     </Button>
                 </Box>
