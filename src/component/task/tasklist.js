@@ -117,7 +117,7 @@ export default function TaskList() {
                     />
                 </Box>
                 <Box flexShrink={1}>
-                    <Button className = 'add-button' ata-testid="new-item-button" variant="contained" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
+                    <Button className = 'add-button' data-testid="new-item-button" variant="contained" onClick={addTask} aria-label="add task" startIcon={<AddIcon/>}>
                         Add
                     </Button>
                 </Box>
