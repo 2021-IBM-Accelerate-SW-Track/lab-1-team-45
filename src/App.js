@@ -11,6 +11,7 @@ function App() {
         <Container maxWidth="md">
             <TaskList/>
         </Container>
+        <Box mb="3em"></Box>
     </div>
     );
 }
